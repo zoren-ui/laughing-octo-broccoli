@@ -2,7 +2,7 @@
   "name": "commonplace-prototype",
   "compatibility_date": "2026-10-25",
   "assets": {
-    "directory": "./public",
+    "directory": "./",
     "not_found_handling": "single-page-application"
   }
 }
