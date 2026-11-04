@@ -1,0 +1,21 @@
+{
+  "name": "funtasi",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "wrangler dev",
+    "build": "node --check worker/index.js && node --check worker/lib.js && node --check worker/ai.js && node --check public/js/app.js && node --check public/js/api.js && node --check public/js/images.js",
+    "deploy": "wrangler deploy"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.57.0",
+    "image-size": "^2.0.2"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}

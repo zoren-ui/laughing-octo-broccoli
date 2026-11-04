@@ -1,0 +1,62 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "funtasi",
+  "main": "worker/index.js",
+  "compatibility_date": "2026-11-04",
+  "workers_dev": false,
+
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "run_worker_first": true
+  },
+
+  "routes": [
+    {
+      "pattern": "1tasi.com/*",
+      "zone_name": "1tasi.com"
+    },
+    {
+      "pattern": "*.1tasi.com/*",
+      "zone_name": "1tasi.com"
+    }
+  ],
+
+  "vars": {
+    "ROOT_DOMAIN": "1tasi.com",
+    "SUPABASE_URL": "https://tjdxavtbecvueljzxtjv.supabase.co",
+    "OPENROUTER_MODEL": "google/gemma-4-26b-a4b-it",
+    "SMART_ORDER_LAUNCH_AT": "2026-12-02T11:00:00Z"
+  },
+
+  "ratelimits": [
+    {
+      "name": "API_RATE",
+      "namespace_id": "1001",
+      "simple": {
+        "limit": 90,
+        "period": 60
+      }
+    },
+    {
+      "name": "AUTH_RATE",
+      "namespace_id": "1002",
+      "simple": {
+        "limit": 5,
+        "period": 60
+      }
+    },
+    {
+      "name": "AI_RATE",
+      "namespace_id": "1003",
+      "simple": {
+        "limit": 12,
+        "period": 60
+      }
+    }
+  ],
+
+  "observability": {
+    "enabled": true
+  }
+}
